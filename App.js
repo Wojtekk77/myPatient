@@ -1,10 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js develop brach!</Text>
+      <Text>Dwa przyciski 
+      </Text>
+      <View style={styles.fixToText}>
+        <Button
+          title="Left button"
+          onPress={() => Alert.alert('Left button pressed')}
+        />
+        <Button
+          title="Right button"
+          onPress={() => Alert.alert('Right button pressed')}
+        />
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -17,4 +28,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',}
 });
