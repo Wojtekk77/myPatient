@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Register from './screens/register/Register';
 import Patients from './screens/patients/Patients';
 import Login from './screens/login/Login';
+import Patient from './screens/patients/Patient';
 
 
 function HomeScreen({ navigation }) {
@@ -20,6 +21,10 @@ function HomeScreen({ navigation }) {
       <Button
         title="Patients"
         onPress={() => navigation.navigate('Patients')}
+      />
+      <Button
+        title="Patient"
+        onPress={() => navigation.navigate('Patient')}
       />
       <Button
         title="Register"
@@ -39,6 +44,7 @@ function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Patients" component={Patients} />
+        <Stack.Screen name="Patient" component={Patient} />
         <Stack.Screen name="Register" component={Register} />
       </Stack.Navigator>
     </NavigationContainer>
