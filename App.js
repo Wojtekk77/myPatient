@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
@@ -24,6 +25,7 @@ function HomeScreen({ navigation }) {
         title="Register"
         onPress={() => navigation.navigate('Register')}
       />
+
     </View>
   );
 }
@@ -44,3 +46,4 @@ function App() {
 }
 
 export default App;
+
