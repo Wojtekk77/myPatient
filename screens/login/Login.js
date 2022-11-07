@@ -1,4 +1,4 @@
- import { StatusBar } from "expo-status-bar";
+import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export default function App() {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showEmailError, setShowEmailError] = useState("");
@@ -27,56 +27,54 @@ export default function App() {
 
     if (password.length > 8) {
       setShowPasswordError(false);
-    }
-    else {
+    } else {
       setShowPasswordError(true);
-
     }
   };
 
-
-  return (   
+  return (
     <View style={styles.container}>
-    <StatusBar style="auto" />
-    <View style={styles.inputView}>
-      <TextInput
-        style={styles.TextInput}
-        placeholder="Email."
-        placeholderTextColor="#003f5c"
-        onChangeText={(email) => setEmail(email)}
-      />
+      <StatusBar style="auto" />
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.TextInput}
+          placeholder="Email."
+          placeholderTextColor="#003f5c"
+          onChangeText={(email) => setEmail(email)}
+        />
+      </View>
+      <View>
+        <Text style={styles.forgot_button}>
+          {showEmailError ? "Coś tam w sśordolymnlbrlfdngkj" : ""}
+        </Text>
+      </View>
+
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.TextInput}
+          placeholder="Password."
+          placeholderTextColor="#003f5c"
+          secureTextEntry={true}
+          onChangeText={(password) => setPassword(password)}
+        />
+      </View>
+
+      <View>
+        <Text style={styles.forgot_button}>
+          {showPassworsError ? "Błędne Hasło" : ""}
+        </Text>
+      </View>
+
+      <TouchableOpacity>
+        <Text style={styles.forgot_button}>Forgot Password?</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.loginBtn} onPress={() => signIn()}>
+        <Text style={styles.loginText}>LOGIN</Text>
+      </TouchableOpacity>
     </View>
-    <View>
-      <Text style={styles.forgot_button}>
-        {showEmailError ? "Coś tam w sśordolymnlbrlfdngkj" : ""}
-      </Text>
-    </View>
-
-    <View style={styles.inputView}>
-      <TextInput
-        style={styles.TextInput}
-        placeholder="Password."
-        placeholderTextColor="#003f5c"
-        secureTextEntry={true}
-        onChangeText={(password) => setPassword(password)}
-      />
-    </View>
-
-    <View>
-      <Text style={styles.forgot_button}>
-        {showPassworsError ? "Błędne Hasło" : ""}
-      </Text>
-    </View>
-
-    <TouchableOpacity>
-      <Text style={styles.forgot_button}>Forgot Password?</Text>
-    </TouchableOpacity>
-
-    <TouchableOpacity style={styles.loginBtn} onPress={() => signIn()}>
-      <Text style={styles.loginText}>LOGIN</Text>
-    </TouchableOpacity>
-
-
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -120,7 +118,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 40,
     backgroundColor: "#FF1493",
-  }},
-)
+  },
+});
 
-export default function App
+export default Login;
